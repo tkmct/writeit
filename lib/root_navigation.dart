@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import './write/page.dart';
-import './see/page.dart';
+import './chart/screen.dart';
+import './write/screen.dart';
 
 class RootNavigation extends StatefulWidget {
   RootNavigation({Key key}) : super(key: key);
@@ -12,8 +12,8 @@ class RootNavigation extends StatefulWidget {
 class _RootNavigationState extends State<RootNavigation> {
   int _currentIndex = 0;
   var _screens = [
-    Write(),
-    See(),
+    WriteScreen(),
+    ChartScreen(),
   ];
 
   @override
@@ -25,7 +25,7 @@ class _RootNavigationState extends State<RootNavigation> {
               BottomNavigationBarItem(
                   icon: Icon(Icons.edit), title: Text('Write')),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.show_chart), title: Text('See')),
+                  icon: Icon(Icons.show_chart), title: Text('Chart')),
             ],
             currentIndex: _currentIndex,
             fixedColor: Colors.cyan,

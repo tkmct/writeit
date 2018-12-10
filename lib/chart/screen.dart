@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class Write extends StatelessWidget {
+class ChartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(child: Icon(Icons.edit));
+    return Center(child: Icon(Icons.show_chart));
   }
 }
