@@ -34,5 +34,7 @@ class DoneListBloc {
     _doneList.add(addition.item);
     _items.add(_doneList.items);
     _itemCount.add(_doneList.count);
+
+    print(_items.value.map((Done done) => done.name));
   }
 }
