@@ -3,6 +3,7 @@ import './widgets/input_field.dart';
 import '../shared/bloc/done_list.dart';
 import '../shared/bloc/done_list_provider.dart';
 import '../shared/model/done.dart';
+import '../shared/widgets/button.dart';
 
 class WriteScreen extends StatelessWidget {
   final TextEditingController _textController = TextEditingController();
@@ -23,15 +24,17 @@ class WriteScreen extends StatelessWidget {
                     children: [
                   Row(children: <Widget>[
                     Flexible(
-                      child: InputField(_textController,
-                          (String text) => _handleSubmitted(text, doneList)),
+                      child: InputField(
+                          controller: _textController,
+                          handleSubmitted: (String text) =>
+                              _handleSubmitted(text, doneList)),
                     ),
-                    Container(
-                        padding: EdgeInsets.all(8.0),
-                        child: IconButton(
-                            icon: Icon(Icons.send),
-                            onPressed: () => _handleSubmitted(
-                                _textController.text, doneList)))
+                    Button(
+                      child: Text('DONE',
+                          style: TextStyle(color: Colors.blue, fontSize: 12.0)),
+                      onTap: () =>
+                          _handleSubmitted(_textController.text, doneList),
+                    ),
                   ]),
                   Text('${snapshot.data} items')
                 ])));
