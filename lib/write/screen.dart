@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './widgets/input_field.dart';
 import '../bloc/done_list.dart';
 import '../bloc/done_list_provider.dart';
 import '../model/done.dart';
@@ -7,7 +8,7 @@ class WriteScreen extends StatelessWidget {
   final TextEditingController _textController = TextEditingController();
   void _handleSubmitted(String text, DoneListBloc doneList) {
     _textController.clear();
-    doneList.doneListAddition.add(DoneListAddition(Done(text)));
+    doneList.doneListAddition.add(DoneListAddition(Done(name: text)));
   }
 
   @override
@@ -22,13 +23,9 @@ class WriteScreen extends StatelessWidget {
                     children: [
                   Row(children: <Widget>[
                     Flexible(
-                        child: TextField(
-                      controller: _textController,
-                      onSubmitted: (String text) =>
-                          _handleSubmitted(text, doneList),
-                      decoration: new InputDecoration.collapsed(
-                          hintText: "Write down what you've done!!"),
-                    )),
+                      child: InputField(_textController,
+                          (String text) => _handleSubmitted(text, doneList)),
+                    ),
                     Container(
                         padding: EdgeInsets.all(8.0),
                         child: IconButton(
