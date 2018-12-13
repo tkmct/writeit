@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import './root_navigation.dart';
-import './bloc/done_list_provider.dart';
+import './shared/bloc/done_list_provider.dart';
 
 void main() {
   runApp(App());

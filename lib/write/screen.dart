@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import './widgets/input_field.dart';
-import '../bloc/done_list.dart';
-import '../bloc/done_list_provider.dart';
-import '../model/done.dart';
+import '../shared/bloc/done_list.dart';
+import '../shared/bloc/done_list_provider.dart';
+import '../shared/model/done.dart';
 
 class WriteScreen extends StatelessWidget {
   final TextEditingController _textController = TextEditingController();

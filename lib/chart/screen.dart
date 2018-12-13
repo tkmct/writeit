@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../model/done.dart';
-import '../bloc/done_list_provider.dart';
+import '../shared/model/done.dart';
+import '../shared/bloc/done_list_provider.dart';
 
 class ChartScreen extends StatelessWidget {
   @override
