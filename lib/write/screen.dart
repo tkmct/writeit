@@ -17,6 +17,7 @@ class WriteScreen extends StatelessWidget {
     final doneList = DoneListProvider.of(context);
     return StreamBuilder(
         stream: doneList.itemCount,
+        initialData: doneList.itemCount.value,
         builder: (context, snapshot) => Container(
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,

@@ -8,6 +8,7 @@ class ChartScreen extends StatelessWidget {
     final doneList = DoneListProvider.of(context);
     return StreamBuilder<List<Done>>(
         stream: doneList.items,
+        initialData: doneList.items.value,
         builder: (context, snapshot) {
           if (snapshot.data == null || snapshot.data.isEmpty) {
             return Center(

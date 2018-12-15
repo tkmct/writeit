@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:rxdart/subjects.dart';
+import 'package:rxdart/rxdart.dart';
 import '../model/done_list.dart';
 import '../model/done.dart';
 
@@ -17,8 +17,9 @@ class DoneListBloc {
   final _itemAdditionController = StreamController<DoneListAddition>();
 
   Sink<DoneListAddition> get doneListAddition => _itemAdditionController.sink;
-  Stream<int> get itemCount => _itemCount.stream.distinct();
-  Stream<List<Done>> get items => _items.stream;
+  ValueObservable<int> get itemCount =>
+      _itemCount.stream.distinct().shareValue(seedValue: 0);
+  ValueObservable<List<Done>> get items => _items.stream;
 
   DoneListBloc() {
     _itemAdditionController.stream.listen(_handleAction);
